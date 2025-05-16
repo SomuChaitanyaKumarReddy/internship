@@ -1,0 +1,367 @@
+:root {
+    --primary-bg: #fa7136;
+    --gray-light:#f5f5f5;
+    --secondary-bg:white;
+    --gradient-bg: linear-gradient(45deg,rgba(255,255,255,0.1),rgba(255,255,255,0.5));
+    --input-bg: white;
+    --button-bg: linear-gradient(0deg, rgba(36, 35, 35, 1) 0%, rgba(0, 0, 0, 1) 100%, rgba(63, 1, 143, 1) 100%);
+    --button-hover-bg: rgba(0, 0, 0, 0.52);
+    --button-active-bg: #ffffff;
+    --text-color: black;
+    --button-text-color: white;
+    --shadow-light: rgba(128, 128, 128, 0.1);
+    --shadow-dark: rgba(99, 99, 99, 0.274);
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins Regular", sans-serif;
+    /* transition: all .05s ease; */
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    background: var(--gradient-bg);
+    transition: all 1s ease;
+    background: var(--primary-bg);
+    user-select: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px var(--input-bg) inset !important;
+}
+
+#eye-icon {
+    opacity: 0;
+    transition: all .3s ease;
+    cursor: pointer;
+}
+.row{
+    width: 90%;
+}
+
+.container {
+    /* margin: 0;
+    padding: 0;
+    min-width: 100vw;
+    height: 100%;
+    
+    position: relative; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#login{}
+
+#login .row.row-box {
+    background-color: var(--gradient-bg);
+    background: var(--gray-light);
+    box-shadow: 0 10px 15px var(--shadow-light);
+    overflow: hidden;
+    border-radius: 20px;
+
+}
+/* 
+#login .form-box {
+    transform: translateX(100%);
+    transition: all 1s ease;
+
+}
+
+#signup .form-box {
+    transform: translateX(-100%);
+    transition: all 1s ease;
+
+} */
+
+#signup .row.row-box {
+    background-color: var(--gradient-bg);
+    background: var(--gray-light);
+    overflow: hidden;
+    box-shadow: 0 10px 15px var(--shadow-light);
+    border-radius: 20px;
+}
+
+#login .row .right-side {
+    padding: 0;
+    /* background: #ffffff7d !important; */
+    background: var(--primary-bg);
+    backdrop-filter: blur(10px);
+    box-shadow: inset 0 0px 0px 10px var(--gray-light);
+    border-radius: 30px;
+    overflow: hidden;
+    position: absolute;
+    left: -50%;
+
+    z-index: 111;
+    transition: all 1s ease;
+}
+
+#signup .row .right-side {
+    padding: 0;
+    /* background: #ffffff7d !important; */
+    background: var(--primary-bg);
+    box-shadow: inset 0 0px 0px 10px var(--gray-light);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    overflow: hidden;
+    position: absolute;
+    left: 50%;
+    z-index: 111;
+    transition: all 1s ease;
+}
+
+#login .row .right-side img {
+    /* border-radius: 30px 20% 0 30px; */
+    filter: drop-shadow(0 5px 1px var(--gray-light));
+    /* transform: scaleX(-1); */
+    box-shadow: inset 0 0 0 10px var(--gray-light);
+    object-fit: cover;
+}
+
+#signup .row .right-side img {
+    /* border-radius: 30px 20% 0 30px; */
+    filter: drop-shadow(0 5px 1px var(--gray-light));
+    object-fit: cover;
+    box-shadow: inset 0 0 0 10px var(--gray-light);
+}
+
+.input-field.bg {
+    background-color: var(--input-bg);
+    border-radius: 10px;
+    max-width: 290px;
+    margin: 0 auto;
+    height: 45px;
+    padding: 0 10px;
+}
+
+form input::placeholder {
+    color: var(--text-color);
+}
+
+
+.input-field .flex input {
+    max-width: 300px;
+    height: 45px;
+    padding: 0 0 0 12px;
+    outline: none;
+    border: none;
+    background: none;
+    user-select: none;
+    transition: all .5s ease;
+}
+
+.input-field .flex input[type="submit"] {
+    min-width: 290px;
+    width: 100%;
+    height: 45px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background: var(--button-bg);
+    color: var(--button-text-color);
+    transition: transform .4s ease;
+}
+
+.input-field .flex input[type="submit"]:hover {
+    background: var(--button-bg);
+    color: var(--button-text-color);
+    border: 1px solid black;
+}
+
+.input-field .flex input[type="submit"]:active {
+    border: none;
+    background: #000000d3;
+    backdrop-filter: blur(10px);
+}
+
+.row.remember {
+    font-size: 14px;
+}
+
+.row.remember .forget>a {
+    text-decoration: none;
+    color: var(--primary-bg-dark);
+}
+
+.row.remember .forget>a:active {
+    text-decoration: underline;
+}
+
+.login-box {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-box a {
+    text-decoration: none;
+}
+
+.login-box button {
+    width: 280px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid gray;
+    border-radius: 10px;
+    transition: background-color .4s, color .3s;
+}
+
+#login .login-box button:hover,
+#signup .login-box button:hover {
+    background: var(--button-bg);
+    color: var(--button-text-color);
+}
+
+#login .login-box button:active,
+#signup .login-box button:active {
+    background: var(--button-bg);
+    color: var(--button-text-color);
+}
+
+.row .right-side button.signup-btn {
+    position: absolute;
+    bottom: 15px;
+    right: 10%;
+    max-width: 120px;
+    width: 100%;
+    border-radius: 50px;
+    border: 1px solid black;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.88);
+    color: #ffffff;
+    padding: 10px;
+    box-shadow: 0 10px 20px var(--shadow-dark);
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+}
+
+.row .right-side button.signup-btn:hover {
+    background: var(--button-hover-bg);
+}
+
+.row .right-side button.signup-btn:active {
+    background: var(--button-active-bg);
+    border: 1px solid #ffffff;
+    color: #000000;
+}
+
+.row .right-side button.login-btn {
+    position: absolute;
+    bottom: 15px;
+    left: 10%;
+    max-width: 120px;
+    width: 100%;
+    border-radius: 50px;
+    border: 1px solid black;
+    background: rgba(0, 0, 0, 0.88);
+    color: #ffffff;
+    padding: 10px;
+    box-shadow: 0 10px 20px rgba(99, 99, 99, 0.274);
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+}
+
+.row .right-side button.login-btn:hover {
+    background: rgba(0, 0, 0, 0.52);
+    border: 1px solid transparent;
+    box-shadow: 0 10px 15px rgba(128, 128, 128, 0.199);
+}
+
+.row .right-side button.login-btn:active {
+    background: #ffffff;
+    color: #000000;
+    border: 1px solid #ffffff;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 20px rgba(99, 99, 99, 0.53);
+}
+
+@media screen and (max-width:768px) {
+    body {
+        background-color: #ffffff !important;
+        background: #ffffff;
+    }
+
+    .container .row {
+        /* background-color: #ffffff; */
+        border: 1px solid black;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    #login .row.row-box {
+        border-radius: 0;
+    }
+
+    #signup .row.row-box {
+        border-radius: 0;
+    }
+}
+
+@media screen and (max-width:1200px) {
+    html {
+        background: var(--gray-light);
+        overflow: hidden;
+    }
+    body {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--gray-light) !important;
+    }
+
+    .container {
+        width: 100%;
+        background: var(--gradient-bg);
+        min-height: 100%;
+        width: 100%;
+        margin: 0;
+        position: relative;
+    }
+    #login{
+        margin-left: -500px;
+    }
+
+    #login .row.row-box {
+        border-radius: 0;
+        background: var(--gradient-bg);
+        border-radius: 20px;
+        box-shadow: none;
+    }
+
+    #signup .row.row-box {
+        background: var(--gradient-bg);
+        border-radius: 0;
+        border-radius: 20px;
+        box-shadow: none;
+
+    }
+
+}

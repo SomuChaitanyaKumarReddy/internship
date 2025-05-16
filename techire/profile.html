@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Techire - Job Platform</title>
+    <link rel="stylesheet" href="./Assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./Assets/css/chat.css">
+    <link rel="stylesheet" href="./Assets/css/profile.css">
+    <style>
+                @media (max-width: 768px){
+            .profile-info{
+                margin-left: -3%;
+            }
+            
+        }
+        @media (max-width: 576px){
+            .top-bar{
+                width: 115%;
+            }
+        }
+        @media (max-width: 375px){
+            header{
+                width: 118%;
+            }
+            .profile-section{
+                width: 104%;
+            }
+            .profile-info{
+                width: 80%;
+            }
+            #save-profile-btn, #edit-profile-btn{
+                width: 30%;
+            }
+        }
+        .editable {
+  border: 1px solid #4caf50; /* A green border for example */
+  background-color: #fff;
+}
+
+/* Styling for read-only input fields and textareas */
+#profile-section input[readonly],
+#profile-section textarea[readonly] {
+  background-color: #f5f5f5; /* Light gray background */
+  border: 1px solid #ddd;    /* Soft border */
+  color: #555;               /* Muted text color */
+  cursor: default;           /* Indicate non-editable */
+}
+
+/* Styling for editable input fields and textareas */
+#profile-section input:not([readonly]),
+#profile-section textarea:not([readonly]) {
+  background-color: #fff;         /* White background */
+  border: 1px solid #4caf50;        /* Green border to indicate editing mode */
+  color: #000;                    /* Standard text color */
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);  /* Subtle glow effect */
+  cursor: text;                   /* Standard text cursor */
+}
+
+/* Optional: Styling for focus state on editable fields */
+#profile-section input:not([readonly]):focus,
+#profile-section textarea:not([readonly]):focus {
+  outline: none;                  /* Remove default outline */
+  border-color: #2e7d32;          /* Darker green border on focus */
+  box-shadow: 0 0 8px rgba(46, 125, 50, 0.5);  /* Enhanced glow on focus */
+}
+    </style>
+</head>
+<body>
+
+   
+		 <!--chat bot-->
+    <div class="top-bar" id="top-bar">
+        <!-- Message will be inserted here dynamically -->
+      </div>
+    <header>
+        <div class="logo" onclick="window.location.href='./after_login.html'"  style="cursor: pointer;">  <img src="https://marketplace.canva.com/EAFaFUz4aKo/2/0/1600w/canva-yellow-abstract-cooking-fire-free-logo-JmYWTjUsE-Q.jpg" alt="Company Logo" style="cursor: pointer;"> TECHIRE</div>
+        
+        <div class="header-icons">
+            <span class="notification-btn" onclick="toggleNotification()"><i class="fa-regular fa-bell"></i><span class="badge">2</span></span>
+            <!-- <div class="profile"><img src="https://img.freepik.com/premium-vector/man-profile-cartoon_18591-58482.jpg?w=360" alt=""></div> -->
+            <span class="hamburger" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></span>
+
+        </div>
+    </header>
+
+    <div class="sidebar" id="sidebar">
+        <button class="close-btn" onclick="toggleSidebar()"><i class="fa-solid fa-xmark"></i></button>
+
+        <div class="sidebar-profile">
+            <img src="https://img.freepik.com/premium-vector/man-profile-cartoon_18591-58482.jpg?w=360" alt="">
+            <a href="./profile.html">
+
+                <div class="user-details" onclick="window.location.href='./profile.html'">
+                    <span>John Doe</span>
+                    <p>User</p>
+                </div>
+            </a>
+            
+        </div>
+
+        <input type="text" placeholder="Search..." class="search-bar">
+        
+        <!-- Main Links -->
+        <a href="../after login/index.html" class="main-link">Home</a>
+
+
+        
+        <a href="#jobs" class="main-link">Jobs <i class="fa-solid fa-chevron-right"></i></a>
+        
+        <div class="sub-menu">
+            <a href="#subjobs1">Sub Job 1</a>
+            <a href="#subjobs2">Sub Job 2</a>
+        </div>
+        
+        <a href="#pricing" class="main-link">Pricing <i class="fa-solid fa-chevron-right"></i></a>
+        
+        <div class="sub-menu">
+            <a href="#subpricing1">Sub Pricing 1</a>
+            <a href="#subpricing2">Sub Pricing 2</a>
+        </div>
+        <a href="./contact.html" class="main-link">contact</a>
+        
+    </div>
+    <div class="overlay" id="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+
+    <div class="notification-sidebar" id="notification-sidebar">
+        <button class="close-btn" onclick="toggleNotification()"><i class="fa-solid fa-xmark"></i></button>
+        <div class="notifications">
+            <div class="notification">
+                <div class="main-notification">
+                    <h3>Notification 1</h3>
+                <p>Some text here lorem100</p>
+                <p>Some text here lorem100</p>
+                <p>Some text here lorem100</p>
+                </div>
+                <div class="dismiss-btn">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+            <div class="notification">
+                <div class="main-notification">
+                    <h3>Notification 1</h3>
+                <p>Some text here lorem100</p>
+                <p>Some text here lorem100</p>
+                <p>Some text here lorem100</p>
+                </div>
+                <div class="dismiss-btn">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+            <div class="notification">
+                <div class="main-notification">
+                    <h3>Notification 1</h3>
+                <p>Some text here lorem100</p>
+                <p>Some text here lorem100</p>
+                <p>Some text here lorem100</p>
+                </div>
+                <div class="dismiss-btn">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+            <div class="notification">
+                <div class="main-notification">
+                    <h3>Notification 1</h3>
+                <p>Some text here lorem100</p>
+                <p>Some text here lorem100</p>
+                <p>Some text here lorem100</p>
+                </div>
+                <div class="dismiss-btn">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+            <div class="notification">
+                <div class="main-notification">
+                    <h3>Notification 2</h3>
+                <p>Some text here</p>
+                </div>
+                <div class="dismiss-btn">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="overlay" id="notification-overlay" onclick="toggleNotification()"></div>
+    
+
+
+
+
+
+
+
+<section>
+        
+    <div class="buttons">
+        <button onclick="showProfile()" id="profiles" class="custom-btn btn-9">Profile</button>
+    <button onclick="showResumeOptions()" id="resumes" class="custom-btn btn-9"> Resume</button>
+</div>
+    <main>
+        <!-- <button>Contact</button> -->
+         <!-- <aside class="sidebar"  id="sidebar">
+              <button onclick="hideProfile()">Home</button> 
+             <button onclick="hideProfile()">Pricing</button> 
+            <button onclick="showLogoutPopup()">Logout</button> 
+        </aside>  -->
+        
+        
+        
+        
+        <section class="profile-section" id="profile-section">
+            <div class="profile-container">
+                <div class="profile-info">
+                    <img src="../images/profile.jpg" alt="User">
+                    <div class="userinfo">
+                        <!-- <i class="fas fa-bars hamburger-menu" onclick="toggleSidebar()"></i>  -->
+                        <!-- <i id="edit-profile-icon" class="fas fa-pencil-alt"></i> -->
+
+                        <!-- <p><strong>abc</strong></p>
+                        <p><i class="fas fa-envelope"></i> abc.@example.com</p>
+                        <p><i class="fas fa-phone"></i> +1234567890</p> -->
+                        <input type="text" value="abc" readonly>
+<input type="email" value="abc@example.com" readonly>
+<input type="tel" value="+1234567890" readonly>
+
+                    </div>
+                </div>
+                <div class="details">
+                    <h3>Education <i class="fas fa-plus" onclick="addInput('education-input')"></i></h3>
+                    <div id="education-input"></div>
+                    
+                    <h3>Experience <i class="fas fa-plus" onclick="addExperience()"></i></h3>
+                    <div id="experience-input"></div>
+                
+                    <h3>Projects <i class="fas fa-plus" onclick="addProject()"></i></h3>
+<div id="projects-input"></div>
+
+                    <h3>Skills <i id="skill-toggle-icon" class="fas fa-plus" onclick="toggleSkillInput()"></i></h3>
+<div id="skills-input"></div>
+<div id="skills-list"></div>
+<button id="clear-skill-btn" style="display: none;" onclick="clearLastSkill()">Clear</button>
+
+ 
+<h3>Certifications <i class="fas fa-plus" onclick="addCertification()"></i></h3>
+<div id="certifications-input"></div>
+
+<h3>Portfolio <i id="portfolio-toggle-icon"  class="fas fa-pencil-alt" onclick="togglePortfolioInput()"></i></h3>
+<div id="portfolio-input" class="portfolio-container"></div>
+
+
+            </div>
+        </section>
+        <button id="save-profile-btn" style="display:none;" id="save-btn">Save</button>
+<button id="edit-profile-btn" id="edit-btn">Edit Profile</button>
+
+
+        <div id="resume-options" style="display: none; text-align: center; margin-top: 20px;">
+            <input type="file" id="resume-upload" style="display: none;" accept=".pdf,.doc,.docx">
+            <button onclick="document.getElementById('resume-upload').click()">Upload Resume</button>
+            <button onclick="showAdditionalResumeOptions()">Build Resume</button>
+        </div>
+
+        <div id="additional-resume-options" style="display: none; text-align: center; margin-top: 20px;">
+            <button onclick="checkAtsScore()">Check ATS Score</button>
+            <button onclick="downloadResume()">Download</button>
+            <button onclick="viewResume()">View</button>
+        </div>
+    </main>
+    
+   
+
+    <div class="popup" id="logout-popup">
+        <p>Are you sure you want to log out?</p>
+        <button onclick="confirmLogout()">Yes</button>
+        <button onclick="closeLogoutPopup()">No</button>
+    </div>
+
+    <div class="popup" id="success-popup">
+        <p>Successfully logged out!</p>
+        <button onclick="closeSuccessPopup()">OK</button>
+    </div>
+
+    
+</section>
+
+
+
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345093047!2d144.9559253159047!3d-37.817209742014705!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDQ5JzAxLjkiUyAxNDTCsDU3JzIyLjYiRQ!5e0!3m2!1sen!2sus!4v1631309260195!5m2!1sen!2sus" 
+                    allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+    
+            <div class="footer-info">
+                <h3>AI Jobs Platform</h3>
+                <p>123 Innovation Street, Tech Valley,<br> New York, NY 10001, USA</p>
+                <p><i class="fas fa-phone-alt"></i> Phone: +1 (555) 123-4567</p>
+                <p><i class="fas fa-envelope"></i> Email: support@aijobsplatform.com</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="footer-bottom">
+            <p>Copyright &copy; 2023 <a href="#">Techire</a></p>
+        </div>
+    </footer>
+    
+    <script src="./Assets/js/profile.js"></script>
+    
+    <script src="chat.js"></script>
+<script src="./Assets/js/script.js"></script>    
+<script>
+    function toggleNotification() {
+    const notificationContainer = document.querySelector('.notification-container');
+    if (notificationContainer.style.transform === 'translateX(0px)') {
+        notificationContainer.style.transform = 'translateX(100%)';
+    } else {
+        notificationContainer.style.transform = 'translateX(0)';
+    }
+  }
+  function closeNotification() {
+    const notificationContainer = document.querySelector('.notification-container');
+    notificationContainer.style.transform = 'translateX(100%)';
+  }
+</script>
+    
+</body>
+</html>

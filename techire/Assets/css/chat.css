@@ -1,0 +1,112 @@
+/* Style for the chatbot button */
+#chatbot-button {
+    position: fixed; z-index: 2147483647; right: 30px; bottom: 30px; 
+    width: 50px; height: 50px; border: none; border-radius: 100%;
+     background:linear-gradient(-120deg,rgb(243, 162, 42),rgb(244, 252, 7),#e7dd14) ;
+     cursor: pointer;
+}
+
+#chatbot-button i {
+    font-size: 24px;
+}
+
+/* Style for the chat window */
+.chat {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    max-width: 350px;  /* Max width for larger screens */
+    height: 100%;
+    max-height: 500px; /* Max height for larger screens */
+    background-color: #fff;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 2147483646; /* just below the button */
+    overflow: hidden;
+}
+
+/* For mobile view, make the chat window occupy full screen */
+@media (max-width: 600px) {
+    .chat {
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+    }
+}
+
+/* Chat title */
+.chat-title {
+    background-color: #ff9d00;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-title h1 {
+    font-size: 18px;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Messages container */
+.messages {
+    padding: 15px;
+    height: calc(100% - 100px);
+    overflow-y: auto;
+}
+
+/* Message box */
+.message-box {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f1f1f1;
+}
+
+.message-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+.message-submit {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.message.received {
+    width: 75%;
+    background-color: #f0f0f0;
+    text-align: left;
+    font-size: 16px;
+    margin: 5% 0;
+    border-radius: 10px;
+    padding: 10px;
+}
+.message.sent {
+    width: 75%;
+    background-color: #ff9d00;
+    text-align: left;
+    color: white;
+    font-size: 16px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 25%;
+    border-radius: 10px;
+    padding: 10px;
+}

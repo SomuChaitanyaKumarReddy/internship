@@ -1,0 +1,1449 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.top-bar {
+    background-color: #e67e22;
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+    
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky; /* Make header sticky */
+    top: 0; /* Stick to the top of the viewport */
+    z-index: 1000; /* Ensure it stays above other content */
+}
+.top-bar {
+    background-color: #e67e22;
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+    
+}
+.logo {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+/* nav {
+    display: flex;
+    gap: 45%;
+    margin-left: 30%;
+} */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #2c3e50;
+    color: white;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+}
+
+.notifications {
+    position: relative;
+    font-size: 20px;
+}
+/* .badge {
+    background: red;
+    color: transparent;
+    border-radius: 50%;
+    padding: 3px 7px;
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    font-size: 12px;
+} */
+.contact-btn {
+    background: orange;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.profile-pic img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid orange;
+}
+main {
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+}
+/* .sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    background: white;
+    padding: 10px;
+    border-right: 1px solid lightgray;
+}
+.sidebar button {
+    margin: 5px 0;
+    padding: 15px;
+    border: none;
+    cursor: pointer;
+    background: white;
+    font-size: 16px;
+    text-align: left;
+    border: 1px solid orange;
+} */
+.profile-section {
+    flex: 1;
+    padding: 20px;
+    display: none;
+   
+}
+.profile-container {
+    display: block;
+    align-items: flex-start;
+    /* gap: 20px; */
+    margin-left: 0;
+    /* width: 90%; */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    background: white;
+    /* width: 85%; */
+    height: 100%;
+    padding: 5px;
+}
+.notification-btn {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+/* Notification Sidebar Styles */
+.notification-sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;               /* Adjust width as needed */
+    height: 100%;
+    background-color: #ff9900;     /* Background color */
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);  /* A slight shadow for depth */
+    transform: translateX(100%); /* Start hidden off-screen */
+    transition: transform 0.3s ease; /* Smooth transition for sliding in/out */
+    z-index: 1000;
+    overflow-y: auto;           /* Allow scrolling if content overflows */
+    padding: 20px;
+  }
+  
+  /* When the notification sidebar is active, slide it in */
+  .notification-sidebar.active {
+    transform: translateX(0);
+  }
+  
+  /* (Optional) Style for the close button inside the notification sidebar */
+  .notification-sidebar .close-btn {
+    /* background: none; */
+    background-color: #e67e22;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  
+  /* Optional: Styling for individual notifications inside the sidebar */
+  .notification-sidebar .notification {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+  }
+  .notification-sidebar .notification:last-child {
+    border-bottom: none;
+  }
+/* Notification Sidebar (Container) */
+.notification-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;              /* Adjust width as needed */
+    height: 100%;
+    background-color: antiquewhite;    /* Background color */
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);  /* For a subtle shadow */
+    transform: translateX(100%);  /* Hide sidebar by moving it off-screen */
+    transition: transform 0.3s ease;  /* Smooth slide-in/out transition */
+    z-index: 1000;
+    overflow-y: auto;          /* Enable scrolling if content overflows */
+    padding: 20px;
+  }
+  
+  /* When active, slide the sidebar into view */
+  .notification-container.active {
+    transform: translateX(0);
+  }
+  
+  /* Close Button Styling */
+  .notification-container .close-btn {
+    /* background: none; */
+    background-color: #e67e22;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  
+  /* Individual Notification Styling */
+  .notification-container .notification {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+  }
+  
+  .notification-container .notification:last-child {
+    border-bottom: none;
+  }
+  
+  /* Styling for Notification Content */
+  .notification-container .main-notification h3 {
+    margin: 0 0 5px;
+    font-size: 1.1em;
+    color: #f9f9f9;
+  }
+  .main-notification{
+    background-color: orange;
+    border-radius: 0px 96px 0px 0px;
+  }
+  .notification-container .main-notification p {
+    margin: 2px 0;
+    font-size: 0.9em;
+  }
+  
+  /* Dismiss Button (optional styling) */
+  .notification-container .dismiss-btn {
+    cursor: pointer;
+    font-size: 1em;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    
+  }
+  
+  /* Overlay Styling */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);  /* Semi-transparent black */
+    z-index: 900;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+  }
+  
+  /* When active, display the overlay */
+  .overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+    
+.profile-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    /* margin-left: 5%; */
+    
+}
+.profile-info img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid orange;
+    margin-top: 3%;
+}
+.details {
+    width: 100%;
+    margin-top: 3%;
+    margin-left: 5%;
+}
+.large-info {
+    width: 60%;
+    height: 150px;
+    padding: 10px;
+    border: 1px solid orange;
+    border-radius: 5px;
+    resize: none;
+    order: 2;
+}
+/* .logout-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    border-radius: 5px;
+}
+.logout-popup button {
+    margin: 10px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+} */
+.userinfo{
+    margin-left: 2%;
+    margin-top: 3%;
+    
+}
+
+
+.details h3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+.details h3 i {
+    color:#555;
+    cursor: pointer;
+    margin-right: 25%;
+}
+.details h3 i:hover{
+     color: orange;
+}
+.input-container {
+    width: 75%;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    background: #f9f9f9;
+}
+.input-container input, .input-container textarea {
+    width: 20%;
+    padding: 5px;
+    margin-right: 10px;
+    border: 1px solid orange;
+    border-radius: 5px;
+}
+.input-container textarea {
+    width: 60%;
+    height: 100px;
+    margin-top: 10px;
+    resize: none;
+}
+.input-container button {
+    background: orange;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.skill-item {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 5px;
+    background: lightblue;
+    border-radius: 5px;
+}
+.profile-pic{
+    margin-right: 6%;
+}
+.fa-magnifying-glass{
+    color: #f9f9f9;
+    background-color: orange;
+    padding: 5px;
+    border-radius: 5px;
+    margin-left: 100px;
+}
+
+/* Skill Input Box */
+#skill-search {
+width: 250px;
+padding: 10px;
+border: 2px solid orange;
+border-radius: 5px;
+font-size: 14px;
+outline: none;
+transition: 0.3s ease-in-out;
+}
+#skill-search:focus {
+border-color: darkorange;
+box-shadow: 0 0 5px rgba(255, 165, 0, 0.5);
+}
+
+/* OK Button */
+#skills-input button {
+background: orange;
+color: white;
+border: none;
+padding: 10px 15px;
+cursor: pointer;
+border-radius: 5px;
+font-size: 14px;
+transition: 0.3s ease-in-out;
+}
+#skills-input button:hover {
+background: darkorange;
+}
+
+/* Skill Items (Tags) */
+.skill-item {
+display: inline-block;
+background: #007bff;
+color: white;
+padding: 8px 12px;
+margin: 5px;
+border-radius: 20px;
+font-size: 14px;
+font-weight: bold;
+position: relative;
+transition: 0.3s ease-in-out;
+}
+.skill-item:hover {
+background: #0056b3;
+}
+
+/* Clear Button */
+#clear-skill-btn {
+background: red;
+color: white;
+border: none;
+padding: 8px 12px;
+cursor: pointer;
+border-radius: 5px;
+font-size: 14px;
+margin-top: 10px;
+transition: 0.3s ease-in-out;
+display: none;
+}
+#clear-skill-btn:hover {
+background: darkred;
+}
+
+.certification-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;  /* Spacing between elements */
+    margin-bottom: 10px;
+    width: 80%;
+}
+
+.cert-input {
+    padding: 8px;
+    border: 1px solid orange;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 25%; /* Ensures inputs are equal width */
+}
+
+.cert-clear-btn {
+    background: red;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.cert-clear-btn:hover {
+    background: darkred;
+}
+
+.project-container {
+    display: flex;
+    flex-direction: column;
+    padding: 5px 10px;
+    gap: 10px; /* Adds spacing between input fields */
+    margin-bottom: 15px;
+    width: 75%;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    background: #f9f9f9;
+}
+
+.project-input {
+    padding: 8px;
+    border: 1px solid orange;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 50%; /* Ensures inputs are of moderate width */
+}
+
+.project-textarea {
+    padding: 8px;
+    border: 1px solid orange;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 60%;
+    height: 100px;
+    resize: none; /* Prevents resizing */
+}
+
+.project-clear-btn {
+    background: red;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 15%;
+    margin-left: 65%;
+    margin-top: -5%;
+}
+
+.project-clear-btn:hover {
+    background: darkred;
+}
+
+.portfolio-container {
+    margin-top: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.portfolio-input {
+    padding: 8px;
+    border: 2px solid orange;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 50%;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.portfolio-input:focus {
+    border-color: darkorange;
+    box-shadow: 0 0 5px rgba(255, 165, 0, 0.5);
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.fade-out {
+    animation: fadeOut 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+}
+
+/* Styling for Resume Options Section */
+#resume-options, #additional-resume-options {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#resume-options button, #additional-resume-options button {
+    background-color: orangered;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#resume-options button:hover, #additional-resume-options button:hover {
+    background-color: orange;
+}
+
+/* Upload button styling */
+#resume-upload {
+    display: none;
+}
+
+/* Logout Popup Styling */
+.logout-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    border-radius: 5px;
+}
+
+.logout-popup button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.logout-popup button:hover {
+    background-color: #a71d2a;
+}
+
+header {
+    width: 97.5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+.logo img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+.header-right {
+    display: flex;
+    align-items: center;
+    margin-right: 2%;
+}
+.notifications {
+    position: relative;
+    margin-right: 20px;
+}
+.notification-btn {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+/* .badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: red;
+    color: white;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 50%;
+} */
+.contact-btn {
+    background: orange;
+    border: none;
+    padding: 8px 15px;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+.profile-pic img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+}
+/* .hamburger-menu i {
+    font-size: 24px;
+    cursor: pointer;
+} */
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    border-radius: 10px;
+}
+.popup button {
+    margin: 10px;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+}
+.popup button:hover {
+    opacity: 0.8;
+}
+.hamburger-menu{
+    display: none;
+}
+
+/* Mobile view adjustments */
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+    /* Show the hamburger icon only on mobile */
+    .hamburger-menu {
+      display: block;
+    }
+    .input-container{
+        width: 86%;
+
+    }
+    .project-container{
+        width: 86%;
+    }
+    .certification-container {
+        width: 86%;
+    }
+    .input-container input, .input-container textarea {
+        width: 90%;
+        margin-top: 9px;
+    }
+    .project-input{
+        width: 86%;
+    }
+    .project-textarea{
+        width: 95%;
+    }
+    .project-clear-btn {
+        margin-top: 0;
+        margin-left: 0;
+        width: 25%;
+    }
+    .hamburger-menu{
+        margin-left: 96%;
+    }
+    /* Sidebar initial state (completely hidden off-screen) */
+    /* .sidebar {
+      position: fixed;
+      left: -100%; 
+      top: 9.5%;
+      width: 250px;
+      height: 100%;
+      background-color: #f9f9f9;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+      transition: left 0.3s ease-in-out; 
+    } */
+    .portfolio-input{
+        width: 86%;
+    }
+    .certification-container {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: stretch; /* Make inputs take full width */
+        width: 100%; /* Ensure full width */
+       
+    }
+    
+    .userinfo{
+        margin-left: 7%;
+    }
+
+    .cert-input {
+        width: 86%; /* Full width for better responsiveness */
+    }
+
+    .cert-clear-btn {
+        width: 17%; /* Full width for consistency */
+        margin-top: 7px; /* Add space above the button */
+    }
+    .profile-container {
+        width: 120%;
+        margin-left: -15%;
+        padding: 10px; /* Add some padding for spacing */
+    }
+    /* Sidebar visible when open */
+    /* .sidebar.open {
+      left: 0; 
+      top: 9.5%;
+    } */
+  
+    /* Profile section width increased */
+    .profile-section {
+      flex: 1;
+      padding: 20px;
+      display: block;
+      width: 90%;  /* Increase width to 80% for mobile */
+      margin-left: 0%; /* Center the profile section */
+    }
+  
+    /* Profile and header adjustments */
+    .profile-pic {
+      margin-right: 10px;
+    }
+  
+    .header-right {
+      display: flex;
+      align-items: center;
+      margin-right: 0;
+    }
+    .profile-info {
+        margin-left: 1% !important; /* updated margin for 1440px and below */
+      }
+  }
+ 
+  
+  /* Media Query for 1440px Laptops */
+@media (max-width: 1440px) {
+    /* Example adjustments for screens 1440px and below */
+    header {
+      padding: 10px 15px;
+      width: 101%;
+    }
+    .profile-info {
+        margin-left: 30%; /* updated margin for 1440px and below */
+      }
+      .top-bar{
+        width: 101%;
+      }
+      .input-container textarea{
+        width: 90%;
+      }
+      .project-textarea{
+        width: 90%;
+      }
+      .project-clear-btn{
+        margin-left: 0;
+        margin-top: 0;
+      }
+    /* Add more styles as needed */
+  }
+  
+  /* Media Query for 1024px Laptops */
+  @media (max-width: 1024px) {
+    /* Example adjustments for screens 1024px and below */
+    header {
+      padding: 10px 10px;
+    }
+    .profile-container {
+      width: 90%;
+      margin-left: 5%;
+    }
+    .profile-info {
+        margin-left: 22% !important; /* updated margin for 1440px and below */
+      }
+    /* Adjust navigation, font sizes, etc. */
+    .cert-input {
+        width: 86%; /* Full width for better responsiveness */
+    }
+  }
+  
+  /* Media Query for Mobile Devices (425px and below) */
+  @media (max-width: 576px) {
+    /* Adjustments for devices up to 425px */
+    header {
+      /* flex-direction: column; */
+      padding: 0px;
+      width: 120%;
+    }
+    .buttons{
+        margin-left: 8%;
+    }
+    
+     #save-profile-btn, #edit-profile-btn{
+        width: 25%;
+     }
+     .profile-container{
+        left: -14%;
+        width: 115%;
+     }
+     .profile-info{
+        left: -17%;
+    width: 79%;
+     }
+    .input-container,
+    .project-container,
+    .certification-container,
+    .portfolio-input {
+      width: 90%;
+    }
+    .hamburger {
+      margin-left: auto;
+    }
+    /* Add further mobile-specific styles */
+    .profile-info {
+        margin-left: 3%; /* updated margin for 1440px and below */
+        width: 84%;
+      }
+  }
+  
+  /* Media Query for Mobile Devices (375px and below) */
+  @media (max-width: 375px) {
+    /* Adjustments for devices up to 375px */
+    header {
+      padding: 8px;
+    }
+    .profile-info {
+      max-width: 100%;
+      margin: 0 5%;
+    }
+    .input-container input,
+    .input-container textarea {
+      width: 95%;
+    }
+    /* Customize additional elements as needed */
+  }
+  
+  /* Media Query for Mobile Devices (320px and below) */
+  @media (max-width: 325px) {
+    /* Adjustments for devices up to 320px */
+    header {
+      padding: 5px;
+      font-size: 14px;
+      width: 107%;
+      display: flex;
+      flex-direction: row;
+    }
+    .profile-info,
+    .profile-container {
+      margin: 0 2%;
+      width: 96%;
+    }
+    .input-container,
+    .project-container,
+    .certification-container,
+    .portfolio-input {
+      width: 95%;
+    }
+    /* Further fine-tune styles for very small screens */
+  }
+  .top-bar{
+    width: 101%;
+  }
+  /* Remove Sidebar */
+.sidebar {
+    display: none; /* Hide sidebar */
+  }
+  
+  /* Styling for Profile and Resume buttons */
+  .header-right {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .profile-btn, .resume-btn {
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .profile-btn:hover, .resume-btn:hover {
+    background-color: darkorange;
+  }
+  
+  /* Main content adjustments */
+  main {
+    display: flex;
+    flex-direction: column; /* Stack profile and resume sections */
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  /* Hide the resume section by default */
+  .resume-section {
+    display: none;
+  }
+  
+  /* Show the profile section by default */
+  .profile-section {
+    display: block;
+  }
+.buttons{
+    width: 100%;
+    height: 4%;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* gap: 3%; */
+}  
+/* .buttons button{
+    width: 15%;
+    border: none;
+    padding: 9px;
+    border-radius: 10px 0px 10px 0px;
+    background-color: #f9f9f9;
+}
+.buttons button:hover{
+    background-color: #f9f9f9;
+} */
+.btn-9 {
+    border: none;
+    transition: all 0.3s ease;
+    overflow: hidden;
+  }
+  .btn-9:after {
+    position: absolute;
+    content: " ";
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+     background-color: #1fd1f9;
+  background-image: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%);
+    transition: all 0.3s ease;
+  }
+  .btn-9:hover {
+    background: transparent;
+    box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+                -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+      inset -4px -4px 6px 0 rgba(255,255,255,.5),
+      inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+    color: #fff;
+  }
+  .btn-9:hover:after {
+    -webkit-transform: scale(2) rotate(180deg);
+    transform: scale(2) rotate(180deg);
+    box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+                -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+      inset -4px -4px 6px 0 rgba(255,255,255,.5),
+      inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+  }
+  .frame {
+    width: 90%;
+    margin: 40px auto;
+    text-align: center;
+  }
+  button {
+    margin: 20px;
+  }
+  .custom-btn {
+    width: 130px;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+     box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+  }  
+
+
+  /* Pencil icon styling */
+#edit-profile-icon {
+    font-size: 18px;
+    color: #555;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    transition: color 0.3s ease;
+}
+
+#edit-profile-icon:hover {
+    color: orange;
+}
+
+/* Profile container styling */
+.profile-info {
+    position: relative;
+    padding: 20px;
+    /* border: 1px solid #ddd; */
+    border-radius: 10px;
+    max-width: 400px;
+    /* background-color: #f9f9f9; */
+    text-align: center;
+    margin-left: 30%;
+    box-shadow: 4px 7px 12px antiquewhite;
+}
+
+/* Editable input fields */
+.profile-info input {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    text-align: center;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+/* Readonly input styling */
+.profile-info input[readonly] {
+    color: #555;
+    border-bottom: 1px dashed #bbb;
+    cursor: default;
+}
+
+/* When input is editable */
+.profile-info input:not([readonly]) {
+    background-color: #fff;
+    border-bottom: 2px solid orange;
+    cursor: text;
+}
+
+/* Buttons styling */
+#save-profile-btn, #edit-profile-btn {
+    width: 20%;
+    margin-left: 40%;
+    padding: 10px;
+    margin-top: -25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#save-profile-btn {
+    background-color: green;
+    color: white;
+    display: none;
+}
+
+#save-profile-btn:hover {
+    background-color: darkgreen;
+}
+
+#edit-profile-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+#edit-profile-btn:hover {
+    background-color: #0056b3;
+}
+
+.hamburger {
+    font-size: 2rem;
+    cursor: pointer;
+    /* padding: 10px; */
+    margin:0px 20px 0px 20px;
+}
+.header-icons .profile img{
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    border: 1px solid #ff9900;
+    margin:0px 10px 0px 10px;
+}
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100vh;
+    background-color: #ff9900;
+    box-shadow: -2px 0px 10px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease-in-out;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1000;
+}
+.sidebar .sidebar-profile {
+    margin-top: 50px;
+    background-color: #fff;
+    width: 90%;
+    height: 60px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    display: flex;
+    border: 1px solid #f39c12;
+    padding: 5px;
+}
+.sidebar .sidebar-profile .user-details{
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+    justify-content: center;
+    /* background-color: red; */
+    width: 50%;
+    text-transform: capitalize;
+
+}
+.sidebar .sidebar-profile .user-details span{
+    font-size: 16px;
+    font-weight: bold;
+}
+.sidebar .sidebar-profile .user-details p{
+    font-size: 14px;
+    font-weight:lighter;
+    font-style: italic;
+}
+.sidebar .sidebar-profile img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+
+
+}
+.notification-sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100vh;
+    background-color: #ff9900;
+    box-shadow: -2px 0px 10px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease-in-out;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1000;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    padding: 12px 20px;
+    width:90%;
+    display: flex;
+    justify-content: space-between;
+    transition: background 0.3s;
+}
+
+/* Main Link with space between link and icon */
+/* Main Link with space between link and icon */
+.main-link {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    padding: 12px 20px;
+    width: 90%;
+    display: flex;
+    justify-content: space-between; /* Space between text and icon */
+    align-items: center; /* Align items vertically */
+    text-align: left;
+    transition: background 0.3s;
+}
+
+/* Ensure proper spacing between text and icon */
+.main-link i {
+    margin-left: auto; /* Push the icon to the right */
+    padding-right: 15px; /* Extra spacing on the right */
+}
+
+/* Optional: Hover effect */
+.main-link:hover {
+    background: #ff7300;
+    width: 90%;
+
+}
+
+
+.sidebar a:hover {
+    background: #ff7300;
+}
+
+
+.search-bar {
+    width: 90%;
+    height: 40px;
+    padding: 8px;
+    margin: 25px 0;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    margin-bottom: 20px;
+}
+
+/* Overlay (to close sidebar when clicking outside) */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+/* Show sidebar and overlay */
+.sidebar.open {
+    right: 0;
+}
+.notification-sidebar.open {
+    right: 0;
+}
+
+.overlay.show {
+    display: block;
+}
+/* Sidebar and other existing styles */
+
+/* Add style for sub-menu (hidden by default) */
+.sub-menu {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    /* background-color: #ff7300; */
+    width: 90%;
+}
+
+.sub-menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    padding: 10px 20px;
+    width: 100%;
+    /* text-align: left; */
+    transition: background 0.3s;
+   
+
+
+}
+
+.sub-menu a:hover {
+    background: #ff7300;
+   
+
+}
+
+/* Change icon when expanded */
+.open-submenu i {
+    transform: rotate(90deg);
+   
+
+
+}
+
+/* Add the transition for opening the sub-menu */
+.sub-menu.open {
+    display: flex;
+ 
+
+
+}
+
+.badge {
+    background-color: #f39c12;
+    color: white;
+    font-size: 12px;
+    border-radius: 50%;
+    padding: 3px 6px;
+    position: relative;
+    top: -10px;
+    left: -5px;
+}
+.contact, .login {
+    margin-left: 10px;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.contact {
+    background-color: #e67e22;
+    color: white;
+}
+.login {
+    background-color: #f39c12;
+    color: white;
+}
+.notification-sidebar .notifications{
+    margin-top: 20px;
+    overflow-y:auto;
+}
+/* width */
+.notification-sidebar .notifications::-webkit-scrollbar {
+    width: 2px;
+  }
+  ​
+  /* Track */
+  .notification-sidebar .notifications::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  .notification-sidebar .notifications::-webkit-scrollbar-thumb {
+    background: white; 
+    border-radius: 10px;
+  }
+
+
+
+.notification-sidebar .notifications .notification{
+    background-color: wheat;
+    padding: 20px;
+    margin: 10px;
+    width: 250px;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;  
+}
+.notification-sidebar .notifications .notification .main-notification h3{
+    font-weight: 100;
+    margin-bottom: 10px;
+
+}
+.notification-sidebar .notifications .notification .dismiss-btn{
+    display: none;
+    cursor: pointer;
+}
+.notification-sidebar .notifications .notification:hover .dismiss-btn{
+    display: block;
+}

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Techire - Job Platform</title>
+    <link rel="stylesheet" href="../Assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../Assets/css/chat.css">
+    <link rel="stylesheet" href="../Assets/css/jd.css">
+
+
+</head>
+<body>
+
+    <button id="chatbot-button" class="text-white "><i class='fa-solid fa-robot' style='font-size:24px'></i></button>
+			 
+					 
+					 
+    <div class="chat">
+        <div class="chat-title">
+            <h1 style="color:#fff">Chat Bot</h1>
+            <button class="close-btn"><i class="fa fa-times "></i></button>
+        </div>
+        <div class="messages">
+            <div class="messages-content">
+                <!-- Sample messages -->
+                <div class="message received">
+                    <p>Hi there! How can I help you today?</p>
+                </div>
+                <div class="message sent">
+                    <p>Hello! I need assistance with my order.</p>
+                </div>
+            </div>
+        </div>
+        <div class="message-box">
+            <input type="text" class="message-input" placeholder="Type message...">
+            <button type="submit" class="message-submit"><i class="fa-solid fa-paper-plane" style='font-size:24px'></i></button>
+        </div>
+    </div>
+		 <!--chat bot-->
+    <div class="top-bar" id="top-bar">
+        <!-- Message will be inserted here dynamically -->
+      </div>
+    <header>
+        <div class="logo"> <img src="https://marketplace.canva.com/EAFaFUz4aKo/2/0/1600w/canva-yellow-abstract-cooking-fire-free-logo-JmYWTjUsE-Q.jpg" alt="Company Logo"> TECHIRE</div>
+        
+        <div class="header-icons">
+            <span class="notification-btn" onclick="toggleNotification()"><i class="fa-regular fa-bell"></i><span class="badge">2</span></span>
+            <!-- <div class="profile"><img src="https://img.freepik.com/premium-vector/man-profile-cartoon_18591-58482.jpg?w=360" alt=""></div> -->
+            <span class="hamburger" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></span>
+
+        </div>
+    </header>
+
+    <div class="sidebar" id="sidebar">
+        <button class="close-btn" onclick="toggleSidebar()"><i class="fa-solid fa-xmark"></i></button>
+
+        <div class="sidebar-profile">
+            <img src="https://img.freepik.com/premium-vector/man-profile-cartoon_18591-58482.jpg?w=360" alt="">
+            <div class="user-details">
+                <span>John Doe</span>
+                <p>User</p>
+            </div>
+            
+        </div>
+
+        <input type="text" placeholder="Search..." class="search-bar">
+        
+        <!-- Main Links -->
+        <a href="#home" class="main-link">Home <i class="fa-solid fa-chevron-right"></i></a>
+
+        
+        <div class="sub-menu">
+            <a href="#subhome1">Sub Home 1</a>
+            <a href="#subhome2">Sub Home 2</a>
+        </div>
+        
+        <a href="#jobs" class="main-link">Jobs <i class="fa-solid fa-chevron-right"></i></a>
+        
+        <div class="sub-menu">
+            <a href="#subjobs1">Sub Job 1</a>
+            <a href="#subjobs2">Sub Job 2</a>
+        </div>
+        
+        <a href="#pricing" class="main-link">Pricing <i class="fa-solid fa-chevron-right"></i></a>
+        
+        <div class="sub-menu">
+            <a href="#subpricing1">Sub Pricing 1</a>
+            <a href="#subpricing2">Sub Pricing 2</a>
+        </div>
+        <a href="#contact" class="main-link">contact</a>
+        
+    </div>
+    <div class="overlay" id="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+
+    <div class="notification-sidebar" id="notification-sidebar">
+        <button class="close-btn" onclick="toggleNotification()"><i class="fa-solid fa-xmark"></i></button>
+        <div class="notifications">
+            <div class="notification">
+                <div class="main-notification">
+                    <h3>Notification 1</h3>
+                <p>Some text here lorem100</p>
+                <p>Some text here lorem100</p>
+                <p>Some text here lorem100</p>
+                </div>
+                <div class="dismiss-btn">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+            <div class="notification">
+                <div class="main-notification">
+                    <h3>Notification 1</h3>
+                <p>Some text here lorem100</p>
+                <p>Some text here lorem100</p>
+                <p>Some text here lorem100</p>
+                </div>
+                <div class="dismiss-btn">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+            <div class="notification">
+                <div class="main-notification">
+                    <h3>Notification 1</h3>
+                <p>Some text here lorem100</p>
+                <p>Some text here lorem100</p>
+                <p>Some text here lorem100</p>
+                </div>
+                <div class="dismiss-btn">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+            <div class="notification">
+                <div class="main-notification">
+                    <h3>Notification 1</h3>
+                <p>Some text here lorem100</p>
+                <p>Some text here lorem100</p>
+                <p>Some text here lorem100</p>
+                </div>
+                <div class="dismiss-btn">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+            <div class="notification">
+                <div class="main-notification">
+                    <h3>Notification 2</h3>
+                <p>Some text here</p>
+                </div>
+                <div class="dismiss-btn">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="overlay" id="notification-overlay" onclick="toggleNotification()"></div>
+    
+
+
+
+
+
+
+
+    <section class="jd-container">
+        <div class="jd-sidebar">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Facebook_logo_%28square%29.png/640px-Facebook_logo_%28square%29.png" alt="Facebook Logo">
+            <h2>Meta</h2>
+            <div class="jd-company-description">
+
+                <p>Meta is a global leader in social technology, dedicated to building the next generation of digital experiences. With a mission to bring the world closer together, Meta connects billions of people through its platforms, including Facebook, Instagram, WhatsApp, and more.</p>
+                <p>We are committed to innovation in artificial intelligence, virtual reality, and augmented reality, creating more immersive and interactive online experiences.</p>
+                <p>At Meta, we strive to create a future where people can seamlessly interact and collaborate from anywhere in the world. Join us in shaping the digital landscape.</p>
+                <p>Meta is a global leader in social technology, dedicated to building the next generation of digital experiences. With a mission to bring the world closer together, Meta connects billions of people through its platforms, including Facebook, Instagram, WhatsApp, and more.</p>
+                <p>We are committed to innovation in artificial intelligence, virtual reality, and augmented reality, creating more immersive and interactive online experiences.</p>
+                <p>At Meta, we strive to create a future where people can seamlessly interact and collaborate from anywhere in the world. Join us in shaping the digital landscape.</p>
+                <p>Meta is a global leader in social technology, dedicated to building the next generation of digital experiences. With a mission to bring the world closer together, Meta connects billions of people through its platforms, including Facebook, Instagram, WhatsApp, and more.</p>
+                <p>We are committed to innovation in artificial intelligence, virtual reality, and augmented reality, creating more immersive and interactive online experiences.</p>
+                <p>At Meta, we strive to create a future where people can seamlessly interact and collaborate from anywhere in the world. Join us in shaping the digital landscape.</p>
+                <p>Meta is a global leader in social technology, dedicated to building the next generation of digital experiences. With a mission to bring the world closer together, Meta connects billions of people through its platforms, including Facebook, Instagram, WhatsApp, and more.</p>
+                <p>We are committed to innovation in artificial intelligence, virtual reality, and augmented reality, creating more immersive and interactive online experiences.</p>
+                <p>At Meta, we strive to create a future where people can seamlessly interact and collaborate from anywhere in the world. Join us in shaping the digital landscape.</p>
+            </div>
+        </div>
+        <div class="jd-content">
+            <p class="jd-applied">interview on 21-05-25</p>
+            <div class="jd-job-title"><i class="fas fa-briefcase icon"></i>Full Stack Developer</div>
+            <p><i class="fas fa-map-marker-alt icon"></i><strong>Location:</strong> [Location]</p>
+            <p><i class="fas fa-building icon"></i><strong>Department:</strong> Engineering</p>
+            <p><i class="fas fa-user-tie icon"></i><strong>Reports To:</strong> [Manager's Title]</p>
+            <div class="jd-section">
+                <h2>Role Overview</h2>
+                <p>We are seeking a skilled <strong>Full Stack Developer</strong> to join our engineering team. You will work across the full development stack, building and optimizing high-performance web and mobile applications.</p>
+            </div>
+            <div class="jd-section">
+                <h2>Responsibilities</h2>
+                <ul>
+                    <li>Design, build, and maintain client-side and server-side applications across the full stack.</li>
+                    <li>Develop clean, efficient, and maintainable code using modern technologies such as React, Node.js, Python, and GraphQL.</li>
+                    <li>Collaborate with product managers, designers, and other engineers to define and implement new features and functionalities.</li>
+                    <li>Ensure cross-platform compatibility and optimize applications for maximum speed and scalability.</li>
+                </ul>
+            </div>
+            <div class="jd-button-container">
+                <button>Prepare for Interview</button>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345093047!2d144.9559253159047!3d-37.817209742014705!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDQ5JzAxLjkiUyAxNDTCsDU3JzIyLjYiRQ!5e0!3m2!1sen!2sus!4v1631309260195!5m2!1sen!2sus" 
+                    allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+    
+            <div class="footer-info">
+                <h3>AI Jobs Platform</h3>
+                <p>123 Innovation Street, Tech Valley,<br> New York, NY 10001, USA</p>
+                <p><i class="fas fa-phone-alt"></i> Phone: +1 (555) 123-4567</p>
+                <p><i class="fas fa-envelope"></i> Email: support@aijobsplatform.com</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="footer-bottom">
+            <p>Copyright &copy; 2023 <a href="#">Techire</a></p>
+        </div>
+    </footer>
+    
+    <script src="./Assets/js/index.js"></script>
+    <script src="./Assets/js/chat.js"></script>
+</body>
+</html>

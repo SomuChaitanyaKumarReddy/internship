@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobs Management - Admin Panel</title><!-- custom icons form remix icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.5.0/remixicon.css"
+        integrity="sha512-6p+GTq7fjTHD/sdFPWHaFoALKeWOU9f9MPBoPnvJEWBkGS4PKVVbCpMps6IXnTiXghFbxlgDE8QRHc3MU91lJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/admin.css">
+
+    <style>
+        /* Dashboard Cards */
+        .dashboard-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: var(--primary-light);
+            border: 1px solid var(--primary);
+            padding: 1.5rem;
+            backdrop-filter: blur(100px);
+            border-radius: 10px;
+            box-shadow: 0 2px 10px var(--primary-light);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            background: none;
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .card-title {
+            color: var(--dark);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .card-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--dark);
+        }
+
+        /* Search and Filters */
+        .search-filters {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .filters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .filter-group label {
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .filter-group input,
+        .filter-group select {
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+
+        /* Jobs Table */
+        .jobs-table {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background: var(--light);
+            font-weight: 600;
+        }
+
+        tr:nth-of-type(2n) {
+            background: rgba(0, 0, 0, 0.02);
+        }
+
+        @media screen and (max-width:1200px) {
+            table th {
+                display: none;
+            }
+
+            table,
+            table tbody,
+            table tr,
+            table td {
+                display: block;
+                width: 100%;
+            }
+
+            table tr {
+                margin-bottom: 15px;
+            }
+
+            table tbody tr td {
+                text-align: right;
+                padding-left: 50%;
+                position: relative;
+            }
+
+            table tbody tr td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 0;
+                width: 50%;
+                padding-left: 15px;
+                font-weight: 600;
+                text-align: left;
+            }
+        }
+
+        .status-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .status-active {
+            background: var(--success);
+            color: white;
+        }
+
+        .status-pending {
+            background: var(--warning);
+            color: white;
+        }
+
+        .status-expired {
+            background: var(--danger);
+            color: white;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-success {
+            background: var(--success);
+            color: white;
+        }
+
+        .btn-danger {
+            background: var(--danger);
+            color: white;
+        }
+
+        /* Charts Section */
+        .charts-container {
+            width: 100%;
+            height: 100%;
+            gap: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .chart-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="header-sidebar">
+            <div class="logo me-5">
+                <h2>TechHire</h2>
+            </div>
+            <div class="close_btn d-lg-none ms-5">
+                <i class="ri-close-fill"></i>
+            </div>
+        </div>
+        <ul class="nav-items">
+            <li onclick="window.location.href='../index.html'"><i class="ri-arrow-left-line"></i>  <!-- Left arrow icon -->
+                User Panel</li>
+            <li onclick="window.location.href='admin.html'"><i class="ri-dashboard-fill"></i>Dashboard
+            </li>
+            <li onclick="window.location.href='user_manage.html'"><i class="ri-user-2-fill"></i>Users</li>
+            <li class="active" onclick="window.location.href='job_manage.html'"><i class="ri-briefcase-fill"></i> Jobs
+            </li>
+            <li onclick="window.location.href='approval.html'"><i class="ri-checkbox-circle-fill"></i> Approvals
+            </li>
+            <!-- <li><i class="ri-line-chart-fill"></i> Analytics</li> -->
+            <li onclick="location.href='./admin_settings.html'"><i class="ri-settings-fill"></i> Settings</li>
+        </ul>
+    </div>
+
+
+
+    <!-- Top Navbar -->
+
+    <nav>
+        <div class="nav-container d-flex align-items-center justify-content-between w-100">
+            <div class="nav-item d-lg-none ">
+                <button class="toggle-btn" id="toggle-btn">&#9776;</button>
+            </div>
+            <div class="nav-item p-0 m-0">
+                <div class="logo p-0 m-0">
+                    <h3>TechHire</h3>
+                </div>
+            </div>
+            <div class="nav-item d-flex align-items-center justify-content-end">
+
+                <div class="nav-icon d-lg-flex d-none">
+                    <i class="ri-search-line"></i>
+                </div>
+                <div class="nav-icon mx-3">
+                    <i class="ri-notification-line"></i>
+                </div>
+                <div class="nav-icon">
+                    <i class="ri-user-line"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+        <h1 style="margin-bottom: 2rem;">Jobs Management</h1>
+
+        <!-- Dashboard Cards -->
+        <div class="dashboard-cards">
+            <div class="card">
+                <div class="card-header border-0">
+                    <div>
+                        <div class="card-title">Total Active Jobs</div>
+                        <div class="card-value">245</div>
+                    </div>
+                    <i class="ri-briefcase-2-fill card-icon"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header border-0">
+                    <div>
+                        <div class="card-title">Pending Approval</div>
+                        <div class="card-value">18</div>
+                    </div>
+                    <i class="ri-time-fill card-icon"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header border-0">
+                    <div>
+                        <div class="card-title">Applications Today</div>
+                        <div class="card-value">156</div>
+                    </div>
+                    <i class="ri-file-2-fill card-icon"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header border-0">
+                    <div>
+                        <div class="card-title">Jobs Expiring Soon</div>
+                        <div class="card-value">12</div>
+                    </div>
+                    <i class="ri-error-warning-fill card-icon"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search and Filters -->
+        <div class="search-filters">
+            <div class="filters-grid">
+                <div class="filter-group">
+                    <label>Search Jobs</label>
+                    <input type="text" placeholder="Search by title or company" id="searchInput">
+                </div>
+                <div class="filter-group">
+                    <label>Category</label>
+                    <select id="categoryFilter">
+                        <option value="">All Categories</option>
+                        <option value="it">IT & Software</option>
+                        <option value="marketing">Marketing</option>
+                        <option value="sales">Sales</option>
+                        <option value="design">Design</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Status</label>
+                    <select id="statusFilter">
+                        <option value="">All Status</option>
+                        <option value="active">Active</option>
+                        <option value="pending">Pending</option>
+                        <option value="expired">Expired</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Date Posted</label>
+                    <select id="dateFilter">
+                        <option value="">All Time</option>
+                        <option value="today">Today</option>
+                        <option value="week">This Week</option>
+                        <option value="month">This Month</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Jobs Table -->
+        <div class="jobs-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Job Title</th>
+                        <th>Company</th>
+                        <th>Category</th>
+                        <th>Posted Date</th>
+                        <th>Applications</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Job Title">Senior Frontend Developer</td>
+                        <td data-label="Company">Tech Corp</td>
+                        <td data-label="Category">IT & Software</td>
+                        <td data-label="Posted Date">Jan 28, 2024</td>
+                        <td data-label="Applications">45</td>
+                        <td data-label="Status"><span class="status-badge status-active">Active</span></td>
+                        <td data-label="Actions">
+                            <button class="btn btn-primary d-none" onclick="viewJob(1)">
+                                <i class="ri-eye-line"></i>
+                            </button>
+                            <button class="btn btn-success" onclick="editJob(1)">
+                                <i class="ri-edit-line"></i>
+                            </button>
+                            <button class="btn btn-danger" onclick="deleteJob(1)">
+                                <i class="ri-delete-bin-line"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Charts -->
+        <div class="charts-container row d-flex align-items-center justify-content-between flex-wrap">
+            <div class="chart-card col-md-12">
+                <div
+                    class="chart-header d-flex flex-column flex-sm-row justify-content-start justify-content-sm-between">
+                    <h3 style="font-size: 1.3rem;text-wrap: nowrap;">Applications by Category</h3>
+                    <select>
+                        <option>Last 7 Days</option>
+                        <option>Last 30 Days</option>
+                        <option>Last 90 Days</option>
+                    </select>
+
+                </div>
+                <canvas id="categoryChart" style="height: 300px;"></canvas>
+            </div>
+            <div class="chart-card col-md-12">
+                <div
+                    class="chart-header d-flex flex-column flex-sm-row justify-content-start justify-content-sm-between">
+                    <h3 style="font-size: 1.3rem;text-wrap: nowrap;">Job Posting Trends</h3>
+                    <select>
+                        <option>Last 7 Days</option>
+                        <option>Last 30 Days</option>
+                        <option>Last 90 Days</option>
+                    </select>
+                </div>
+                <canvas id="trendChart" style="height: 300px;"></canvas>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <!-- Js for Charts -->
+    <script>
+        // Applications by Category Chart
+        var ctx1 = document.getElementById('categoryChart').getContext('2d');
+        new Chart(ctx1, {
+            type: 'bar',
+            data: {
+                labels: ['IT & Software', 'Marketing', 'Sales', 'Design'],
+                datasets: [{
+                    label: 'Number of Applications',
+                    data: [120, 85, 45, 60],
+                    backgroundColor: ['#ff9d00', '#421400', '#db0400', '#d6541c']
+                }]
+            }
+        });
+
+        // Job Posting Trends Chart
+        var ctx2 = document.getElementById('trendChart').getContext('2d');
+        new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+                datasets: [{
+                    label: 'Number of Jobs Posted',
+                    data: [30, 50, 80, 60, 100],
+                    borderColor: '#ff4d00',
+                    fill: true,
+                    backgroundColor: 'rgba(255, 93, 23, 0.1)'
+                }]
+            }
+        });
+    </script>
+
+    <script>
+        // For toggling the sidebar
+        const toggleBtn = document.getElementById('toggle-btn');
+        const sidebar = document.querySelector('.sidebar');
+        const closeBtn = document.querySelector('.close_btn');
+
+        toggleBtn.addEventListener('click', () => {
+            //console.log('clicked');
+
+            sidebar.classList.toggle('active');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        })
+    </script>
+</body>
+
+</html>

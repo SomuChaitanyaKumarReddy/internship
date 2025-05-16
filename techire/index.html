@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Techire - Job Platform</title>
+    <link rel="stylesheet" href="../Assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="top-bar" id="top-bar">
+        <!-- Message will be inserted here dynamically -->
+      </div>
+    <header>
+        <div class="logo"> <img src="https://marketplace.canva.com/EAFaFUz4aKo/2/0/1600w/canva-yellow-abstract-cooking-fire-free-logo-JmYWTjUsE-Q.jpg" alt="Company Logo"> TECHIRE</div>
+        
+        <div class="header-icons">
+            <!-- <button class="login">Login</button> -->
+            <a href="login.html">
+
+                <button class="login-btn">
+                    Login
+                </button>
+            </a>
+            <a href="../admin/admin.html">
+
+                <button class="login-btn" style="margin-left: 10px;">
+                    admin panel
+                </button>
+            </a>
+
+            <span class="hamburger" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></span>
+
+        </div>
+    </header>
+
+    <div class="sidebar" id="sidebar">
+        <button class="close-btn" onclick="toggleSidebar()"><i class="fa-solid fa-xmark"></i></button>
+
+        <div class="sidebar-profile">
+            <img src="https://img.freepik.com/premium-vector/man-profile-cartoon_18591-58482.jpg?w=360" alt="">
+            <a href="../auth/login.html">
+            
+                <div class="user-details">
+                    Login Now
+                </div>
+            </a>
+            
+        </div>
+
+        <input type="text" placeholder="Search..." class="search-bar">
+        
+        
+        <!-- Main Links -->
+        <a href="#home" class="main-link">Home <i class="fa-solid fa-chevron-right"></i></a>
+
+        
+        <div class="sub-menu">
+            <a href="#subhome1">Sub Home 1</a>
+            <a href="#subhome2">Sub Home 2</a>
+        </div>
+        
+        <a href="#jobs" class="main-link">Jobs <i class="fa-solid fa-chevron-right"></i></a>
+        
+        <div class="sub-menu">
+            <a href="#subjobs1">Sub Job 1</a>
+            <a href="#subjobs2">Sub Job 2</a>
+        </div>
+        
+        <a href="#pricing" class="main-link">Pricing <i class="fa-solid fa-chevron-right"></i></a>
+        
+        <div class="sub-menu">
+            <a href="#subpricing1">Sub Pricing 1</a>
+            <a href="#subpricing2">Sub Pricing 2</a>
+        </div>
+        
+        <a href="contact.html" class="main-link">Contact</a>
+    </div>
+    <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+    <div class="notification-sidebar" id="notification-sidebar">
+        <button class="close-btn" onclick="toggleNotification()"><i class="fa-solid fa-xmark"></i></button>
+        <div class="notifications">
+            <div class="notification">
+                <div class="main-notification">
+                    <h3>Notification 1</h3>
+                <p>Some text here lorem100</p>
+                <p>Some text here lorem100</p>
+                <p>Some text here lorem100</p>
+                </div>
+                <div class="dismiss-btn">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+            <div class="notification">
+                <div class="main-notification">
+                    <h3>Notification 1</h3>
+                <p>Some text here lorem100</p>
+                <p>Some text here lorem100</p>
+                <p>Some text here lorem100</p>
+                </div>
+                <div class="dismiss-btn">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+            <div class="notification">
+                <div class="main-notification">
+                    <h3>Notification 1</h3>
+                <p>Some text here lorem100</p>
+                <p>Some text here lorem100</p>
+                <p>Some text here lorem100</p>
+                </div>
+                <div class="dismiss-btn">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+            <div class="notification">
+                <div class="main-notification">
+                    <h3>Notification 1</h3>
+                <p>Some text here lorem100</p>
+                <p>Some text here lorem100</p>
+                <p>Some text here lorem100</p>
+                </div>
+                <div class="dismiss-btn">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+            <div class="notification">
+                <div class="main-notification">
+                    <h3>Notification 2</h3>
+                <p>Some text here</p>
+                </div>
+                <div class="dismiss-btn">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="overlay" id="overlay" onclick="toggleNotification()"></div>
+    
+
+
+
+
+
+
+
+
+
+    <section class="hero">
+        <div>
+          <span>we want to bring</span>
+          <h1>Welcome to Techire - AI Job Finder</h1>
+          <hr>
+          <p>Beauty and mystery are hidden under the sea. Explore with our application to know about Aquatic Animals.</p>
+          <a href="after_login.html">Go to After-Login</a>
+        </div>
+        <img src="../images/ong.png" alt=""  class="bg">
+    </section>
+
+
+
+   
+    <section class="about-section">
+        <div class="about-text">
+            <h1>About Us</h1>
+            <p>We are a team of passionate creatives, dedicated to bringing innovation and imagination to life. Our mission is to craft extraordinary digital experiences.</p>
+            <p>We are a team of passionate creatives, dedicated to bringing innovation and imagination to life. Our mission is to craft extraordinary digital experiences.</p>
+        </div>
+        <div class="about-image">
+            <!-- <img src="https://emeritus.org/wp-content/uploads/2023/11/tech.png" alt="Our Team"> -->
+            <svg xmlns="http://www.w3.org/2000/svg" id="Capa_1" viewBox="0 0 512 512">
+                <path
+                    d="m234.789 86.298-63.642-64.642L0 192.794v126.401l.447.445zM107.47 255.997l63.631-63.631 148.47 148.47-63.63 63.63zm212.17 255.556L86.298 277.211l-64.642 63.642L192.796 512h126.397zM192.358.445l233.348 234.348 64.642-63.639L319.208 0H192.803zm-.037 170.72 63.631-63.631 148.472 148.471-63.631 63.631zm148.53 319.177L512 319.193V191.924L277.211 425.702zM512 512V361.615L361.615 512zM0 361.617V512h150.374zm511.559-211.674.441-.441V0H361.628zM0 0v150.374L150.381 0z"
+                    fill="url(#bgImage)"></path>
+                    <defs>
+                        <pattern id="bgImage" patternUnits="userSpaceOnUse" width="512" height="512">
+                            <image href="https://emeritus.org/wp-content/uploads/2023/11/tech.png" x="0" y="0" width="512"
+                                height="512" />
+                        </pattern>
+                    </defs>
+            </svg>
+        </div>
+    </section>
+    <section class="why-we-choose-us-section">
+        <h1 class="section-heading">Why choose Us</h1>
+        <div class="why-we-choose-us">
+            <div class="box box1" style="background-image: url('https://www.shutterstock.com/image-photo/businessman-operates-focus-on-quality-600nw-2313944751.jpg');">
+                <div class="title"> Our Commitment to Excellence</div>
+            </div>
+            <div class="box box2" style="background-image: url('https://plus.unsplash.com/premium_photo-1682310144714-cb77b1e6d64a?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c2F0aXNmYWN0aW9ufGVufDB8fDB8fHww');">
+                <div class="title">Dedicated to Your Satisfaction</div>
+            </div>
+            <div class="box box3" style="background-image: url('https://img.freepik.com/free-photo/standard-quality-control-collage_23-2149631023.jpg');">
+                <div class="title">Driven by Quality & Efficiency</div>
+            </div>
+            <div class="box box4" style="background-image: url('https://static.vecteezy.com/system/resources/thumbnails/035/062/906/small_2x/effort-and-commitment-to-success-silhouette-of-woman-jumping-over-a-cliff-to-reach-success-with-evening-sunlight-concept-of-setting-goals-for-success-and-effectively-solving-problems-and-obstacles-photo.jpg');">
+                <div class="title">Your Success is Our Priority</div>
+            </div>
+        </div>
+    </section>
+
+ 
+	<section class="section-services">
+		<div class="container">
+			<div class="row justify-content-center text-center">
+				<div class="col-md-10 col-lg-8">
+					<div class="header-section">
+						<h2 class="title">Exclusive Services</h2>
+						<p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur malesuada fermentum purus, eu volutpat nisi laoreet id. Phasellus fringilla accumsan metus, at tempor est hendrerit et.</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<!-- Single Service -->
+				<div class="col-md-6 col-lg-4">
+					<div class="single-service">
+						<div class="content">
+							<span class="icon">
+								<i class="fab fa-battle-net"></i>
+							</span>
+							<h3 class="title">Global coverage</h3>
+							<p class="description">Mauris volutpat urna tristique finibus iaculis. Morbi facilisis, justo eu vulputate elementum, est augue tincidunt ante, sed efficitur leo ligula vel velit.</p>
+							<a href="#" class="learn-more">Learn More</a>
+						</div>
+						<span class="circle-before"></span>
+					</div>
+				</div>
+				<!-- / End Single Service -->
+				<!-- Single Service -->
+				<div class="col-md-6 col-lg-4">
+					<div class="single-service">
+						<div class="content">
+							<span class="icon">
+								<i class="fab fa-asymmetrik"></i>
+							</span>
+							<h3 class="title">It Management</h3>
+							<p class="description">Mauris volutpat urna tristique finibus iaculis. Morbi facilisis, justo eu vulputate elementum, est augue tincidunt ante, sed efficitur leo ligula vel velit.</p>
+							<a href="#" class="learn-more">Learn More</a>
+						</div>
+						<span class="circle-before"></span>
+					</div>
+				</div>
+				<!-- / End Single Service -->
+				<!-- Single Service -->
+				<div class="col-md-6 col-lg-4">
+					<div class="single-service">
+						<div class="content">
+							<span class="icon">
+								<i class="fab fa-artstation"></i>
+							</span>
+							<h3 class="title">Software Development</h3>
+							<p class="description">Mauris volutpat urna tristique finibus iaculis. Morbi facilisis, justo eu vulputate elementum, est augue tincidunt ante, sed efficitur leo ligula vel velit.</p>
+							<a href="#" class="learn-more">Learn More</a>
+						</div>
+						<span class="circle-before"></span>
+					</div>
+				</div>
+				<!-- / End Single Service -->
+				<!-- Single Service -->
+				<div class="col-md-6 col-lg-4">
+					<div class="single-service">
+						<div class="content">
+							<span class="icon">
+								<i class="fab fa-500px"></i>
+							</span>
+							<h3 class="title">Brand Strategy</h3>
+							<p class="description">Mauris volutpat urna tristique finibus iaculis. Morbi facilisis, justo eu vulputate elementum, est augue tincidunt ante, sed efficitur leo ligula vel velit.</p>
+							<a href="#" class="learn-more">Learn More</a>
+						</div>
+						<span class="circle-before"></span>
+					</div>
+				</div>
+				<!-- / End Single Service -->
+				<!-- Single Service -->
+				<div class="col-md-6 col-lg-4">
+					<div class="single-service">
+						<div class="content">
+							<span class="icon">
+								<i class="fas fa-chart-pie"></i>
+							</span>
+							<h3 class="title">Business Consulting</h3>
+							<p class="description">Mauris volutpat urna tristique finibus iaculis. Morbi facilisis, justo eu vulputate elementum, est augue tincidunt ante, sed efficitur leo ligula vel velit.</p>
+							<a href="#" class="learn-more">Learn More</a>
+						</div>
+						<span class="circle-before"></span>
+					</div>
+				</div>
+				<!-- / End Single Service -->
+				<!-- Single Service -->
+				<div class="col-md-6 col-lg-4">
+					<div class="single-service">
+						<div class="content">
+							<span class="icon">
+								<i class="fas fa-laptop-code"></i>
+							</span>
+							<h3 class="title">Website Design</h3>
+							<p class="description">Mauris volutpat urna tristique finibus iaculis. Morbi facilisis, justo eu vulputate elementum, est augue tincidunt ante, sed efficitur leo ligula vel velit.</p>
+							<a href="#" class="learn-more">Learn More</a>
+						</div>
+						<span class="circle-before"></span>
+					</div>
+				</div>
+				<!-- / End Single Service -->
+			</div>
+		</div>
+	</section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345093047!2d144.9559253159047!3d-37.817209742014705!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDQ5JzAxLjkiUyAxNDTCsDU3JzIyLjYiRQ!5e0!3m2!1sen!2sus!4v1631309260195!5m2!1sen!2sus" 
+                    allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+    
+            <div class="footer-info">
+                <h3>AI Jobs Platform</h3>
+                <p>123 Innovation Street, Tech Valley,<br> New York, NY 10001, USA</p>
+                <p><i class="fas fa-phone-alt"></i> Phone: +1 (555) 123-4567</p>
+                <p><i class="fas fa-envelope"></i> Email: support@aijobsplatform.com</p>
+                <div class="social-icons">
+                    <button class="button">
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          height="24"
+                          width="24"
+                          xmlns="http://www.w3.org/2000/svg"
+                          aria-hidden="true"
+                          class="w-6 h-6 text-gray-800 dark:text-white"
+                        >
+                          <path
+                            clip-rule="evenodd"
+                            d="M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"
+                            fill-rule="evenodd"
+                            fill="currentColor"
+                          ></path>
+                        </svg>
+                      </button>
+                      <button class="button">
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          height="24"
+                          width="24"
+                          xmlns="http://www.w3.org/2000/svg"
+                          aria-hidden="true"
+                          class="w-6 h-6 text-gray-800 dark:text-white"
+                        >
+                          <path
+                            clip-rule="evenodd"
+                            d="M12 4a8 8 0 0 0-6.895 12.06l.569.718-.697 2.359 2.32-.648.379.243A8 8 0 1 0 12 4ZM2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10a9.96 9.96 0 0 1-5.016-1.347l-4.948 1.382 1.426-4.829-.006-.007-.033-.055A9.958 9.958 0 0 1 2 12Z"
+                            fill-rule="evenodd"
+                            fill="currentColor"
+                          ></path>
+                          <path
+                            d="M16.735 13.492c-.038-.018-1.497-.736-1.756-.83a1.008 1.008 0 0 0-.34-.075c-.196 0-.362.098-.49.291-.146.217-.587.732-.723.886-.018.02-.042.045-.057.045-.013 0-.239-.093-.307-.123-1.564-.68-2.751-2.313-2.914-2.589-.023-.04-.024-.057-.024-.057.005-.021.058-.074.085-.101.08-.079.166-.182.249-.283l.117-.14c.121-.14.175-.25.237-.375l.033-.066a.68.68 0 0 0-.02-.64c-.034-.069-.65-1.555-.715-1.711-.158-.377-.366-.552-.655-.552-.027 0 0 0-.112.005-.137.005-.883.104-1.213.311-.35.22-.94.924-.94 2.16 0 1.112.705 2.162 1.008 2.561l.041.06c1.161 1.695 2.608 2.951 4.074 3.537 1.412.564 2.081.63 2.461.63.16 0 .288-.013.4-.024l.072-.007c.488-.043 1.56-.599 1.804-1.276.192-.534.243-1.117.115-1.329-.088-.144-.239-.216-.43-.308Z"
+                            fill="currentColor"
+                          ></path>
+                        </svg>
+                      </button>
+                      
+                      <button class="button">
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          height="24"
+                          width="24"
+                          xmlns="http://www.w3.org/2000/svg"
+                          aria-hidden="true"
+                          class="w-6 h-6 text-gray-800 dark:text-white"
+                        >
+                          <path
+                            clip-rule="evenodd"
+                            d="M22 5.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.343 8.343 0 0 1-2.605.981A4.13 4.13 0 0 0 15.85 4a4.068 4.068 0 0 0-4.1 4.038c0 .31.035.618.105.919A11.705 11.705 0 0 1 3.4 4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 6.1 13.635a4.192 4.192 0 0 1-1.856.07 4.108 4.108 0 0 0 3.831 2.807A8.36 8.36 0 0 1 2 18.184 11.732 11.732 0 0 0 8.291 20 11.502 11.502 0 0 0 19.964 8.5c0-.177 0-.349-.012-.523A8.143 8.143 0 0 0 22 5.892Z"
+                            fill-rule="evenodd"
+                          ></path>
+                        </svg>
+                      </button>
+                      
+                      <button class="button">
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          height="24"
+                          width="24"
+                          xmlns="http://www.w3.org/2000/svg"
+                          aria-hidden="true"
+                          class="w-6 h-6 text-gray-800 dark:text-white"
+                        >
+                          <path
+                            clip-rule="evenodd"
+                            d="M21.7 8.037a4.26 4.26 0 0 0-.789-1.964 2.84 2.84 0 0 0-1.984-.839c-2.767-.2-6.926-.2-6.926-.2s-4.157 0-6.928.2a2.836 2.836 0 0 0-1.983.839 4.225 4.225 0 0 0-.79 1.965 30.146 30.146 0 0 0-.2 3.206v1.5a30.12 30.12 0 0 0 .2 3.206c.094.712.364 1.39.784 1.972.604.536 1.38.837 2.187.848 1.583.151 6.731.2 6.731.2s4.161 0 6.928-.2a2.844 2.844 0 0 0 1.985-.84 4.27 4.27 0 0 0 .787-1.965 30.12 30.12 0 0 0 .2-3.206v-1.516a30.672 30.672 0 0 0-.202-3.206Zm-11.692 6.554v-5.62l5.4 2.819-5.4 2.801Z"
+                            fill-rule="evenodd"
+                          ></path>
+                        </svg>
+                      </button>
+                      
+                      <button class="button">
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          height="24"
+                          width="24"
+                          xmlns="http://www.w3.org/2000/svg"
+                          aria-hidden="true"
+                          class="w-6 h-6 text-gray-800 dark:text-white"
+                        >
+                          <path
+                            clip-rule="evenodd"
+                            d="M12.006 2a9.847 9.847 0 0 0-6.484 2.44 10.32 10.32 0 0 0-3.393 6.17 10.48 10.48 0 0 0 1.317 6.955 10.045 10.045 0 0 0 5.4 4.418c.504.095.683-.223.683-.494 0-.245-.01-1.052-.014-1.908-2.78.62-3.366-1.21-3.366-1.21a2.711 2.711 0 0 0-1.11-1.5c-.907-.637.07-.621.07-.621.317.044.62.163.885.346.266.183.487.426.647.71.135.253.318.476.538.655a2.079 2.079 0 0 0 2.37.196c.045-.52.27-1.006.635-1.37-2.219-.259-4.554-1.138-4.554-5.07a4.022 4.022 0 0 1 1.031-2.75 3.77 3.77 0 0 1 .096-2.713s.839-.275 2.749 1.05a9.26 9.26 0 0 1 5.004 0c1.906-1.325 2.74-1.05 2.74-1.05.37.858.406 1.828.101 2.713a4.017 4.017 0 0 1 1.029 2.75c0 3.939-2.339 4.805-4.564 5.058a2.471 2.471 0 0 1 .679 1.897c0 1.372-.012 2.477-.012 2.814 0 .272.18.592.687.492a10.05 10.05 0 0 0 5.388-4.421 10.473 10.473 0 0 0 1.313-6.948 10.32 10.32 0 0 0-3.39-6.165A9.847 9.847 0 0 0 12.007 2Z"
+                            fill-rule="evenodd"
+                          ></path>
+                        </svg>
+                      </button>
+                      
+                </div>
+            </div>
+        </div>
+    
+        <div class="footer-bottom">
+            <p>Copyright &copy; 2023 <a href="#">Techire</a></p>
+        </div>
+    </footer>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./Assets/js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>All Videos from @mrchaitu7</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    h2 {
+      color: #0372aa;
+    }
+    #count {
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background: #f9f9f9;
+    }
+    a {
+      text-decoration: none;
+      color: #024b74;
+      font-weight: bold;
+    }
+    a:hover {
+      color: #0372aa;
+    }
+  </style>
+</head>
+<body>
+  <h2>All Videos from @mrchaitu7</h2>
+  <div id="count">Total Videos: 0</div>
+  <ul id="videoList">
+    <li>Loading videos...</li>
+  </ul>
+
+  <script>
+    // const apiKey = 'YOUR_API_KEY'; // Replace with your YouTube Data API key
+        const apiKey = 'AIzaSyD9xY1qQFTgVyvuaFDGBBZe7_eLTWzxkMQ'; // Replace with your API key
+
+    const channelHandle = '@mrchaitu7';
+    const videoList = document.getElementById('videoList');
+    const countElement = document.getElementById('count');
+    let videoCount = 0;
+
+    async function getChannelIdFromHandle(handle) {
+      const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=channel&q=${handle}&key=${apiKey}`;
+      const res = await fetch(url);
+      const data = await res.json();
+      const channel = data.items?.[0];
+      return channel?.snippet?.channelId || null;
+    }
+
+    async function fetchAllVideos(channelId) {
+      videoList.innerHTML = '';
+      videoCount = 0;
+      await fetchVideos(channelId);
+      countElement.textContent = `Total Videos: ${videoCount}`;
+    }
+
+    async function fetchVideos(channelId, pageToken = '') {
+      const url = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=50&pageToken=${pageToken}`;
+      const response = await fetch(url);
+      const data = await response.json();
+
+      if (!data.items || data.items.length === 0) {
+        if (videoCount === 0) {
+          videoList.innerHTML = '<li>No videos found.</li>';
+        }
+        return;
+      }
+
+      data.items.forEach(item => {
+        if (item.id.kind === 'youtube#video') {
+          videoCount++;
+          const videoId = item.id.videoId;
+          const title = item.snippet.title;
+          const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+          
+          const li = document.createElement('li');
+          li.innerHTML = `<a href="${videoUrl}" target="_blank">${title}</a>`;
+          videoList.appendChild(li);
+        }
+      });
+
+      if (data.nextPageToken) {
+        await fetchVideos(channelId, data.nextPageToken);
+      }
+    }
+
+    async function loadChannelVideos() {
+      const channelId = await getChannelIdFromHandle(channelHandle);
+      if (!channelId) {
+        videoList.innerHTML = '<li>Channel not found.</li>';
+        return;
+      }
+      await fetchAllVideos(channelId);
+    }
+
+    loadChannelVideos();
+
+    // Auto-refresh every 5 minutes
+    // setInterval(loadChannelVideos, 5 * 60 * 1000);
+  </script>
+</body>
+</html>
